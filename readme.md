@@ -1,6 +1,8 @@
 **Work in progress - this probably will not work for you unless you're happy to mess around.**
 
-# 0. Install ansible & passlib
+# 0. Install ansible & passlib, and clone this repo.
+
+Open a terminal & run the following:
 
 ```
 pip install ansible passlib
@@ -8,6 +10,15 @@ pip install ansible passlib
 
 - [Ansible](https://docs.ansible.com/ansible/latest/index.html) automates the setup of the Pi once Raspbian is installed on it.
 - Passlib is needed to generate the user password.
+
+Run:
+
+```
+git clone https://github.com/agoramaHub/ansible-raspberry-server
+cd ansible-raspberry-server
+```
+
+All the following steps assume that you have this repo cloned & are running the commands from that directory (the root directory of the repo).
 
 # 1. Get Raspbian onto your SD card.
 
@@ -61,7 +72,37 @@ ssh pi@raspberrypi.local
 
 The default password is `raspberry`. (Nothing will show up while typing the password)
 
-If you're able to log in, you're all good :)
+**If you're able to log in**, you're all good :)
+
+**If you can't log in**, ie. you get an error saying `Permission denied`, or nothing happens at all, then you will need to find the IP address of your Raspberry Pi instead.
+
+First off, make sure that the Pi is plugged in & the lights are on!
+
+<details>
+<summary>_(One possible way to find your Pi -- using `nmap`)_</summary>
+
+`nmap` is a network scanning tool.
+
+You can run the following command to find all hosts on your local network that have port 22 (the SSH port) open:
+
+```
+nmap -p 22 192.168.0.1/24
+```
+
+You can then try logging in to `pi@<whatever IP you found>` - if you can log in, then you're good.
+
+If you don't have `nmap` installed, try the following if you're on a Mac:
+
+```
+brew install nmap
+```
+
+On Ubuntu:
+
+```
+sudo apt-get install nmap
+```
+</details>
 
 # 5. Add your SSH key & change your password
 
