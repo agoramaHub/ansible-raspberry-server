@@ -4,6 +4,9 @@ firewall_allowed_tcp_ports:
   - '22' # ssh
   - '80' # http
   - '443' # https
+  # dat ports
+  - '3282'
+  - '3283'
 firewall_allowed_udp_ports:
   - '5353' # avahi - required to use raspberrypi.local address
 

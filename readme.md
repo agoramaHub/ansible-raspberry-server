@@ -89,7 +89,7 @@ You can run the following command to find all hosts on your local network that h
 nmap -p 22 192.168.0.1/24
 ```
 
-You can then try logging in to `pi@<whatever IP you found>` - if you can log in, then you're good.
+You can then try logging in using `ssh pi@<whatever IP you found>` - if you can log in, then you're good.
 
 If you don't have `nmap` installed, try the following if you're on a Mac:
 
@@ -121,3 +121,5 @@ The output of this step is saved in `vars/auth.yml`.
 ```
 ansible-playbook all.yml --ask-pass
 ```
+
+This will now set up the Raspberry Pi!
