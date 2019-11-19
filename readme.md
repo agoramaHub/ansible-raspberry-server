@@ -2,6 +2,12 @@
 
 # 0. Install ansible & passlib, and clone this repo.
 
+If not installed, get pip:
+
+```
+sudo apt-get install python3-pip
+```
+
 Open a terminal & run the following:
 
 ```
